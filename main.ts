@@ -1,3 +1,80 @@
+namespace SpriteKind {
+    export const Object = SpriteKind.create()
+}
+namespace myTiles {
+    //% blockIdentity=images._tile
+    export const tile0 = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    //% blockIdentity=images._tile
+    export const tile1 = img`
+. . . . . . . . . . . . . . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 f f f f f f f f f 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 1 f f f f f f f 1 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 1 1 f f f f f f f 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 f f f f f f f 1 1 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 1 1 f f f f f f 1 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . 1 f f f f f f f f f 1 . . . 
+. . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+. . . . . . . . . . . . . . . . 
+`
+    //% blockIdentity=images._tile
+    export const tile2 = img`
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+`
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Object, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    if (info.score() == 8) {
+        game.over(true)
+    }
+    pages.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
+    music.baDing.play()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    if (info.life() == 0) {
+        game.over(false)
+    }
+})
+let pages: Sprite = null
 let mySprite = sprites.create(img`
 . . . . . . 5 . 5 . . . . . . . 
 . . . . . f 5 5 5 f f . . . . . 
@@ -16,3 +93,124 @@ let mySprite = sprites.create(img`
 . . . f f f f f f f f f f . . . 
 . . . . . f f . . f f . . . . . 
 `, SpriteKind.Player)
+mySprite.setPosition(74, 54)
+mySprite.setKind(SpriteKind.Player)
+let mySprite2 = sprites.create(img`
+. f f . . . 1 1 1 . . . f f . . 
+. . f f . . 1 1 1 . . f f . . . 
+. . . f f . 1 1 1 . f f . . . . 
+. . . . f f f 1 f f f . . . . . 
+. . . f f f 1 f 1 f f f . . . . 
+. . . f . f 1 f 1 f . f . . . . 
+. . . f . f 1 f 1 f . f . . . . 
+. . f f f f f 1 f f f f f . . . 
+. f f f . f f f f f . f f f . . 
+f f . f . f f f f f . f . f f . 
+f . . f . f f . f f . f . . f f 
+f . . 1 . f . . . f . 1 . . . f 
+. . . . . f . . . f . . . . . . 
+. . . . . f . . . f . . . . . . 
+. . . . f f . . . f f . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Enemy)
+controller.moveSprite(mySprite)
+mySprite2.setPosition(11, 9)
+mySprite2.follow(mySprite, 30)
+mySprite2.setVelocity(10, 10)
+mySprite2.setKind(SpriteKind.Enemy)
+mySprite.setPosition(74, 111)
+mySprite.setVelocity(30, 20)
+tiles.setTilemap(tiles.createTilemap(
+            hex`1000100000000000000003000000000000000000000300000000000000000000000300000000000300000000000300000000000000000000000300000000000000000003000003000000000000000300000000000000000000000300000000000000000003000000000000000300000000000300000000000000000000000003000000000000000300000000000000000000000000000000000000030000030000030000000300000000000000000000000000000000000000030000000000000300000000000000000000000003000000000000000003000000000000000000000000000300000000000300000000000003000000000003000000000000030000000000`,
+            img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,
+            [myTiles.tile0,myTiles.tile1,sprites.castle.tilePath1,sprites.castle.saplingPine,myTiles.tile2],
+            TileScale.Sixteen
+        ))
+controller.moveSprite(mySprite, 100, 100)
+scene.cameraFollowSprite(mySprite)
+info.setLife(3)
+info.setScore(0)
+pages = sprites.create(img`
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+`, SpriteKind.Object)
+let pages2 = sprites.create(img`
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+`, SpriteKind.Object)
+let pages3 = sprites.create(img`
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 f f f f f f f f f f 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+`, SpriteKind.Object)
+forever(function () {
+    pages.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
+    pages2.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
+    pages3.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
+    pause(5000)
+})
+forever(function () {
+    if (controller.A.isPressed() && mySprite.isHittingTile(CollisionDirection.Bottom)) {
+        music.jumpUp.play()
+        mySprite.setVelocity(-100, 50)
+        mySprite.setVelocity(300, 50)
+    }
+})
