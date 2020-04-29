@@ -124,6 +124,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Object, function (sprite, otherS
         game.over(true)
     }
     if (info.score() == 8) {
+        currentlevel += 1
         level_2()
     }
     pages.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
@@ -391,7 +392,6 @@ f . . 1 . f . . . f . 1 . . . f
     mySprite2.setKind(SpriteKind.Enemy)
     mySprite.setPosition(74, 111)
     mySprite.setVelocity(30, 20)
-    currentlevel += 1
     level_1()
 }
 forever(function () {
