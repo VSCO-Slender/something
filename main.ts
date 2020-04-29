@@ -129,8 +129,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Object, function (sprite, otherS
     pages.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
 })
 function level_2 () {
-    if (true) {
-        tiles.setTilemap(tiles.createTilemap(
+    tiles.setTilemap(tiles.createTilemap(
             hex`1000100004040404050404040404040405040404040504040404050404040504040405040404040404040404040404040404040404040405040404040404040404040404040404040404040405040405040404040404040404050404040404040404040404050404040404050405040404040504040404050404040404040404040404040404040404040404040404040404040404040405040405040404040504040504050404040404040404040404040404040404050404040404050404040404040404040404040504040404040404050404040404050404040404040405040404040404040404040404050404040404050404050404040404040404040404040404`,
             img`
 . . . . . . . . . . . . . . . . 
@@ -153,14 +152,11 @@ function level_2 () {
             [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
-        mySprite2.follow(mySprite)
-        scene.cameraFollowSprite(mySprite)
-    }
+    mySprite2.follow(mySprite)
+    scene.cameraFollowSprite(mySprite)
 }
 function level_1 () {
-    let currentlevel = 0
-    if (currentlevel == 1) {
-        tiles.setTilemap(tiles.createTilemap(
+    tiles.setTilemap(tiles.createTilemap(
             hex`1000100000000000000003000000000000000000000300000000000000000000000300000000000300000000000300000000000000000000000300000000000000000003000003000000000000000300000000000000000000000300000000000000000003000000000000000300000000000300000000000000000000000003000000000000000300000000000000000000000000000000000000030000030000030000000300000000000000000000000000000000000000030000000000000300000000000000000000000003000000000000000003000000000000000000000000000300000000000300000000000003000000000003000000000000030000000000`,
             img`
 . . . . . . . . . . . . . . . . 
@@ -183,9 +179,7 @@ function level_1 () {
             [myTiles.tile0,myTiles.tile1,sprites.castle.tilePath1,sprites.castle.saplingPine,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
-        controller.moveSprite(mySprite, 100, 100)
-        scene.cameraFollowSprite(mySprite)
-        pages = sprites.create(img`
+    pages = sprites.create(img`
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
@@ -203,7 +197,7 @@ function level_1 () {
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 `, SpriteKind.Object)
-        pages2 = sprites.create(img`
+    pages2 = sprites.create(img`
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
@@ -221,7 +215,7 @@ function level_1 () {
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 `, SpriteKind.Object)
-        pages3 = sprites.create(img`
+    pages3 = sprites.create(img`
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
@@ -239,7 +233,7 @@ function level_1 () {
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
 `, SpriteKind.Object)
-        pages4 = sprites.create(img`
+    pages4 = sprites.create(img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -257,7 +251,7 @@ function level_1 () {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.Object)
-        pages5 = sprites.create(img`
+    pages5 = sprites.create(img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -275,7 +269,7 @@ function level_1 () {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.Object)
-        pages6 = sprites.create(img`
+    pages6 = sprites.create(img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -293,7 +287,7 @@ function level_1 () {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.Object)
-        pages7 = sprites.create(img`
+    pages7 = sprites.create(img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -311,7 +305,7 @@ function level_1 () {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.Object)
-        pages8 = sprites.create(img`
+    pages8 = sprites.create(img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -329,7 +323,6 @@ function level_1 () {
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 `, SpriteKind.Object)
-    }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
@@ -347,7 +340,9 @@ let pages2: Sprite = null
 let pages: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let currentlevel = 0
+if (currentlevel == 0) {
+    mySprite = sprites.create(img`
 . . . . . . 5 . 5 . . . . . . . 
 . . . . . f 5 5 5 f f . . . . . 
 . . . . f 1 5 6 5 1 e f . . . . 
@@ -365,7 +360,7 @@ mySprite = sprites.create(img`
 . . . f f f f f f f f f f . . . 
 . . . . . f f . . f f . . . . . 
 `, SpriteKind.Player)
-mySprite2 = sprites.create(img`
+    mySprite2 = sprites.create(img`
 . f f . . . 1 1 1 . . . f f . . 
 . . f f . . 1 1 1 . . f f . . . 
 . . . f f . 1 1 1 . f f . . . . 
@@ -383,18 +378,22 @@ f . . 1 . f . . . f . 1 . . . f
 . . . . f f . . . f f . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Enemy)
-mySprite.setPosition(74, 54)
-mySprite.setKind(SpriteKind.Player)
-info.setLife(3)
-info.setScore(0)
-controller.moveSprite(mySprite)
-mySprite2.setPosition(11, 9)
-mySprite2.follow(mySprite, 30)
-mySprite2.setVelocity(10, 10)
-mySprite2.setKind(SpriteKind.Enemy)
-mySprite.setPosition(74, 111)
-mySprite.setVelocity(30, 20)
-level_1()
+    controller.moveSprite(mySprite, 100, 100)
+    scene.cameraFollowSprite(mySprite)
+    mySprite.setPosition(74, 54)
+    mySprite.setKind(SpriteKind.Player)
+    info.setLife(3)
+    info.setScore(0)
+    controller.moveSprite(mySprite)
+    mySprite2.setPosition(11, 9)
+    mySprite2.follow(mySprite, 30)
+    mySprite2.setVelocity(10, 10)
+    mySprite2.setKind(SpriteKind.Enemy)
+    mySprite.setPosition(74, 111)
+    mySprite.setVelocity(30, 20)
+    currentlevel += 1
+    level_1()
+}
 forever(function () {
     pages.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
     pages2.setPosition(Math.randomRange(30, 250), Math.randomRange(30, 250))
