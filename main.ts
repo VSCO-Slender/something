@@ -179,8 +179,6 @@ mySprite = sprites.create(img`
 . . . f f f f f f f f f f . . . 
 . . . . . f f . . f f . . . . . 
 `, SpriteKind.Player)
-mySprite.setPosition(74, 54)
-mySprite.setKind(SpriteKind.Player)
 mySprite2 = sprites.create(img`
 . f f . . . 1 1 1 . . . f f . . 
 . . f f . . 1 1 1 . . f f . . . 
@@ -199,6 +197,8 @@ f . . 1 . f . . . f . 1 . . . f
 . . . . f f . . . f f . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Enemy)
+mySprite.setPosition(74, 54)
+mySprite.setKind(SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite2.setPosition(11, 9)
 mySprite2.follow(mySprite, 30)
