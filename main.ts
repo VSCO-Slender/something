@@ -154,7 +154,7 @@ function level2 () {
             [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
-    mySprite2.follow(mySprite)
+    mySprite2.follow(mySprite, 28)
     scene.cameraFollowSprite(mySprite)
     mySprite.setPosition(114, 79)
     mySprite.setVelocity(30, 20)
