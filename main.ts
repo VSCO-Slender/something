@@ -156,12 +156,13 @@ function level2 () {
         ))
     mySprite2.follow(mySprite)
     scene.cameraFollowSprite(mySprite)
-    mySprite.setPosition(81, 59)
+    mySprite.setPosition(114, 79)
     mySprite.setVelocity(30, 20)
     mySprite2.setPosition(4, 3)
     mySprite2.setVelocity(10, 10)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    music.wawawawaa.play()
     info.changeLifeBy(-1)
     if (info.life() == 0) {
         game.over(false, effects.melt)
@@ -260,7 +261,7 @@ mySprite2.setVelocity(10, 10)
 mySprite2.setKind(SpriteKind.Enemy)
 mySprite.setPosition(74, 111)
 mySprite.setVelocity(30, 20)
-info.setLife(3)
+info.setLife(1)
 info.setScore(0)
 generatepages()
 forever(function () {
