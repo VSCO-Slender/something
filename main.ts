@@ -192,6 +192,10 @@ function generatepages () {
 let pages: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
+game.showLongText("WELCOME TO ESCAPE FROM SLENDER", DialogLayout.Bottom)
+game.showLongText("THE GOAL OF THE GAME IS TO COLLECT PAGES TO DEFEAT SLENDER", DialogLayout.Bottom)
+game.showLongText("BUT BE CAREFUL, SLENDER MIGHT BE LURKING", DialogLayout.Bottom)
+game.showLongText("GOOD LUCK!", DialogLayout.Bottom)
 mySprite = sprites.create(img`
 . . . . . . 5 . 5 . . . . . . . 
 . . . . . f 5 5 5 f f . . . . . 
